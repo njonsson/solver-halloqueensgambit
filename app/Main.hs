@@ -119,7 +119,7 @@ main :: IO ()
 main = do
   args <- getArgs
   let (flags, inputs, errors) = getOpt Permute options args
-  let fname = if null inputs then "./txtcases/initialBoard.txt" else head inputs
+  let fname = if null inputs then "./app/txtcases/initialBoard.txt" else head inputs
   game@(_, _, _) <- loadGame fname
   if Help `elem` flags
     then putStrLn $ usageInfo "Chess [options] [file]" options

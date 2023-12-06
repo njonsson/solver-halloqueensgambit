@@ -1,0 +1,22 @@
+#! /usr/bin/env sh
+
+executable=$(
+  basename $0
+)
+
+case "$1" in
+  -h | --help)
+    printf "Usage:\n"
+    printf "       \e[1m$executable\e[22m -i    Run interactively\n"
+    exit 1
+    ;;
+  *)
+    if [ -z "$1" ]; then
+      arguments=''
+    else
+      arguments=" -- $@"
+    fi
+    ;;
+esac
+
+cabal run ${executable}${arguments}
